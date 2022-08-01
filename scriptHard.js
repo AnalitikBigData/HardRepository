@@ -1,33 +1,33 @@
-// 1 способ
+let lang = prompt('Введите en/ru');
 
-let num = 266219;
-let composition = 1;
-
-while(num > 0){
-    composition *= num % 10;
-    num = Math.trunc(num / 10);
+if(lang == 'ru'){
+    console.log('Понедельник. Вторник. Среда. Четверг. Пятница. Суббота. Воскресенье');
 }
-let numberInPower = composition ** 3;
-
-while( numberInPower > 0){
-    if(numberInPower >= 10 && numberInPower <= 99){
-        console.log(numberInPower);
-    }
-    
-    numberInPower = Math.trunc(numberInPower / 10);
-    
+else if(lang == 'en'){
+    console.log('Monday. Tuesday. Wednesday. Thursday. Friday. Saturday. Sanday');
+}
+else{
+    console.log('ERROR');
 }
 
-// 2 способ
-num = 266219;
+lang = prompt('Введите en/ru');
+switch(lang){
+    case 'ru':
+        console.log('Понедельник. Вторник. Среда. Четверг. Пятница. Суббота. Воскресенье');
+        break;
+    case 'en':
+        console.log('Monday. Tuesday. Wednesday. Thursday. Friday. Saturday. Sanday');
+        break;
+    default:
+        console.log('ERROR');
+}
 
-let compositionNew = 0;
-let ones = num % 10;
-let tens = Math.trunc((num % 100)/10);
-let hundreds = Math.trunc((num % 1000)/100);
-let thousands = Math.trunc((num % 10000)/1000);
-let tensOfThousands = Math.trunc((num % 100000)/10000);
-let hundredsOfThousands = Math.trunc((num % 1000000)/100000);
+const arrayDay = [['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sanday']];
+console.log('На русском:');
+console.log(arrayDay[0]);
+console.log('English:');
+console.log(arrayDay[1]);
 
-compositionNew = ones * tens * hundreds * thousands * tensOfThousands * hundredsOfThousands;
-console.log( Math.trunc( (compositionNew**3) / 100000000));
+
+let namePerson = prompt('Введите  имя');
+namePerson ==='Артем' ? console.log('директор') : (namePerson === 'Александр'?console.log('преподаватель') : console.log('студент'));
