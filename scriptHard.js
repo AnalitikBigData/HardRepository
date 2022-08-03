@@ -1,33 +1,53 @@
-let lang = prompt('Введите en/ru');
+let str = ' dkdl opqqq qqqq q xz @Mial asa ';
 
-if(lang == 'ru'){
-    console.log('Понедельник. Вторник. Среда. Четверг. Пятница. Суббота. Воскресенье');
+
+const workWithStr = function(strNew){
+    if(typeof(strNew)!== 'string'){
+        return 'не строка';
+    }
+    else{
+        let strTemp1 = '-', strTemp2='-', result;
+        if(strNew[0] === ' '){
+            strTemp1 = strNew[0].replace(' ', '');
+        }
+        if(strNew[strNew.length-1] === ' '){
+            strTemp2 = strNew[strNew.length-1].replace(' ', '');
+        }
+        if(strTemp1 === '' && strTemp2 === ''){
+            result = strTemp1 + strNew.slice(1, strNew.length - 1) + strTemp2;
+            if (result.length > 30 ){
+                return result.slice(0, 30) + '...';
+            }
+            else{
+                return result;
+            }
+        }
+        else if(strTemp1 !== '' && strTemp2 === ''){
+            result = strNew.slice(0, strNew.length - 1) + strTemp2;
+            if (result.length > 30 ){
+                return result.slice(0, 30) + '...';
+            }
+            else{
+                return result;
+            }
+        }
+        else if(strTemp1 === '' && strTemp2 !== ''){
+            result = strTemp1 + strNew.slice(1);
+            if (result.length > 30 ){
+                return result.slice(0, 30) + '...';
+            }
+            else{
+                return result;
+            }
+        }
+        else{
+            if (strNew.length > 30 ){
+                return strNew.slice(0, 30) + '...';
+            }
+            else{
+                return strNew;
+            }
+        }
+    }
 }
-else if(lang == 'en'){
-    console.log('Monday. Tuesday. Wednesday. Thursday. Friday. Saturday. Sanday');
-}
-else{
-    console.log('ERROR');
-}
-
-lang = prompt('Введите en/ru');
-switch(lang){
-    case 'ru':
-        console.log('Понедельник. Вторник. Среда. Четверг. Пятница. Суббота. Воскресенье');
-        break;
-    case 'en':
-        console.log('Monday. Tuesday. Wednesday. Thursday. Friday. Saturday. Sanday');
-        break;
-    default:
-        console.log('ERROR');
-}
-
-const arrayDay = [['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sanday']];
-console.log('На русском:');
-console.log(arrayDay[0]);
-console.log('English:');
-console.log(arrayDay[1]);
-
-
-let namePerson = prompt('Введите  имя');
-namePerson ==='Артем' ? console.log('директор') : (namePerson === 'Александр'?console.log('преподаватель') : console.log('студент'));
+console.log(workWithStr(str));
