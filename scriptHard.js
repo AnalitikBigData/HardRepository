@@ -13,32 +13,33 @@ const getMessage = function(x){
         if(numberOfUserAttempts < 10){
             numberOfUserAttempts++;
             numberOfAttempts--;
-            if(confirm('Играем')===true){
+            if(confirm('Игра окончена')===false){
                 if(x > 100){
-                    //x = +prompt('Введите число ещё раз');
                     console.log('Загаданное число меньше, осталось попыток ' + numberOfAttempts);
-                    x = +prompt('Введите число ещё раз');
+                    x = +prompt('Загаданное число меньше, осталось попыток ' + numberOfAttempts + ' Введите число ещё раз');
                     func();
                 }
                 else if(x < 1){
                     console.log('Загаданное число больше, осталось попыток ' + numberOfAttempts);
-                    x = +prompt('Введите число ещё раз');
+                    x = +prompt('Загаданное число больше, осталось попыток ' + numberOfAttempts +' Введите число ещё раз');
                     func();
                 } else if(!Number(x)){
                     console.log('Введи число!, осталось попыток ' + numberOfAttempts +  ' x = ' + x + ' '+ typeof(x));
-                    x = +prompt('Введите число ещё раз');
+                    x = +prompt('Введи число!, осталось попыток ' + numberOfAttempts + ' Введите число ещё раз');
                     func();
                 } 
                 else if(x !== y ){
                     console.log('Неверно , осталось попыток ' + numberOfAttempts +  ' x != ' + x + typeof(x));
-                    x = +prompt('Введите число ещё раз');
+                    x = +prompt('Неверно , осталось попыток ' + numberOfAttempts + ' Введите число ещё раз');
                     func();
                 }
                 else if(x === y){
+                    alert('Поздравляю, Вы угадали!!! ' + x);
                     console.log('Поздравляю, Вы угадали!!! ' + x);
                 }
             }
             else {
+                alert('Игра окончена');
                 console.log('Игра окончена');
             }
         } else {
