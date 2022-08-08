@@ -32,6 +32,6 @@ const isPrime = function(num){
 
 for(let i = 1; i <= 100; i++){
     if(isPrime(i) === true){
-        console.log(i);
+        console.log('Делители этого числа: 1 и ' + i);
     }
 }
