@@ -9,7 +9,7 @@ for (let i = 0; i < week.length; i++){
     if (now.getDay() === i + 1){
         day = week[i].bold();
         if(now.getDay() === 5 || now.getDate() === 6) {
-            day = week[i].italics();
+            day = week[i].italics().bold();
             console.log(day);
         }
         else console.log(day);
